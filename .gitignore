@@ -1,0 +1,11 @@
+backend/node_modules
+frontend/node_modules
+backend/.env
+backend/.env.*
+frontend/.env
+frontend/.env.*
+backend/npm-debug.log*
+frontend/npm-debug.log*
+*.swp
+.DS_Store
+vaccination_census_project_plan.md
