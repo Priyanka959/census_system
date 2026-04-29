@@ -13,6 +13,7 @@ const resultsRoutes = require('./routes/results');
 
 // Middleware Import
 const errorHandler = require('./middleware/errorHandler');
+const knex = require('./config/knex');
 
 const app = express();
 
@@ -29,14 +30,11 @@ const limiter = rateLimit({
 });
 app.use(limiter);
 
-
 // Connect Routes
 app.use('/vote', voteRoutes);
 app.use('/data', dataRoutes);
 app.use('/counts', countsRoutes);
 app.use('/results', resultsRoutes);
-
-const knex = require('./config/knex');
 
 // Health Check Endpoint
 app.get('/health', async (req, res) => {
@@ -52,7 +50,7 @@ app.get('/health', async (req, res) => {
     uptime: process.uptime(),
     timestamp: new Date().toISOString(),
     database: dbStatus,
-    version: process.env.npm_package_version || '1.0.0'
+    version: process.env.npm_package_version || '1.0.0',
   });
 });
 
@@ -69,14 +67,19 @@ app.use((req, res) => {
 // Global Error Handler
 app.use(errorHandler);
 
-const PORT = process.env.PORT || 3000;
-const server = app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+const startServer = (port = process.env.PORT || 3000) => {
+  const server = app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
+  });
 
-// Keep process alive if app.listen fails to do so for some reason
-setInterval(() => {}, 1000 * 60 * 60);
+  return server;
+};
 
-module.exports = server;
+if (require.main === module) {
+  startServer();
+}
+
+module.exports = app;
+module.exports.startServer = startServer;
 
 

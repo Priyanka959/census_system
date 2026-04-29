@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+const BASE_URL = globalThis.__API_BASE_URL__ || 'http://localhost:3000';
 
 const unwrapData = (promise) =>
   promise.then(res => res.data.data);

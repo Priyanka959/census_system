@@ -10,7 +10,7 @@ import VaccinationLineChart from '../components/charts/VaccinationLineChart';
 import GenderBarChart from '../components/charts/GenderBarChart';
 import AddEntryModal from '../components/census/AddEntryModal';
 import { fetchAllData } from '../api/census';
-import { fromApiFormat } from '../utils/dateUtils';
+import { calculateDashboardStats } from '../utils/dashboardStats';
 import { COLORS } from '../theme';
 
 // ─── Animated Number (count-up) ───
@@ -139,37 +139,7 @@ const DashboardPage = () => {
         const data = await fetchAllData();
         if (!Array.isArray(data)) return;
 
-        const total = data.length;
-        if (total === 0) return;
-
-        const vaccinatedCount = data.filter(d => d.is_vaccinated === true || d.is_vaccinated === 1 || d.is_vaccinated === 'true').length;
-        const vaxPct = Math.round((vaccinatedCount / total) * 100);
-
-        // Group ages
-        const ageGroups = { '< 18': 0, '18-35': 0, '36-50': 0, '51-65': 0, '65+': 0 };
-        data.forEach(d => {
-          let age = d.age;
-          if (age === undefined && d.birthdate) {
-             const parsedDate = fromApiFormat(d.birthdate);
-             if (parsedDate) {
-               const diff = new Date() - parsedDate;
-               age = Math.floor(diff / 31557600000);
-             }
-          }
-          if (age < 18) ageGroups['< 18']++;
-          else if (age <= 35) ageGroups['18-35']++;
-          else if (age <= 50) ageGroups['36-50']++;
-          else if (age <= 65) ageGroups['51-65']++;
-          else ageGroups['65+']++;
-        });
-
-        const topAge = Object.keys(ageGroups).reduce((a, b) => ageGroups[a] > ageGroups[b] ? a : b);
-
-        setStats({
-          total,
-          vaccinatedPercent: vaxPct,
-          topAgeGroup: topAge
-        });
+        setStats(calculateDashboardStats(data));
       } catch (error) {
         console.error('Failed to load stats:', error);
       }
