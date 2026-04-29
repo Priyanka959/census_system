@@ -1,0 +1,11 @@
+node_modules
+dist
+build
+public
+frontend/public
+**/*.png
+**/*.jpg
+**/*.jpeg
+*.lock
+coverage
+*.log
