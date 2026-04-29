@@ -31,7 +31,7 @@ const BottomNav = ({ activeTab, onTabChange }) => {
       {navItems.map((item) => {
         const Icon = item.icon;
         const isActive = activeTab === item.id;
-        
+
         return (
           <Box
             key={item.id}
@@ -47,15 +47,15 @@ const BottomNav = ({ activeTab, onTabChange }) => {
               position: 'relative',
             }}
           >
-            <Icon 
-              sx={{ 
-                fontSize: 24, 
+            <Icon
+              sx={{
+                fontSize: 24,
                 color: isActive ? '#D4F53C' : 'rgba(255,255,255,0.4)',
                 transition: 'color 0.2s ease',
-              }} 
+              }}
             />
             {isActive && (
-              <Box 
+              <Box
                 sx={{
                   position: 'absolute',
                   bottom: '6px',

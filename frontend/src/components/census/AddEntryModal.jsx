@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import { 
-  Dialog, 
-  DialogTitle, 
-  DialogContent, 
-  Snackbar, 
-  Alert, 
-  IconButton, 
+import {
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  Snackbar,
+  Alert,
+  IconButton,
   Typography,
   Box,
   Button,
   useTheme,
-  useMediaQuery
+  useMediaQuery,
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import CensusForm from './CensusForm';
@@ -48,14 +48,13 @@ const AddEntryModal = ({ open, onClose }) => {
       setSnackbar({ open: true, message: 'Record added successfully', severity: 'success' });
       resetForm();
       setIsDirty(false);
-      
+
       // Need a slight delay so they can see success before modal unmounts
       setTimeout(() => {
         handleForceClose();
         // Option to pass a callback on DashboardPage to force reloading of charts/tables
         window.dispatchEvent(new Event('dashboard-refresh'));
       }, 800);
-      
     } catch (err) {
       if (err.response?.status === 409) {
         setServerError('This record already exists. Please verify details.');
@@ -69,8 +68,8 @@ const AddEntryModal = ({ open, onClose }) => {
 
   return (
     <>
-      <Dialog 
-        open={open} 
+      <Dialog
+        open={open}
         onClose={(_, reason) => {
           if (reason !== 'backdropClick') handleCloseAttempt();
         }}
@@ -79,16 +78,30 @@ const AddEntryModal = ({ open, onClose }) => {
         fullScreen={fullScreen}
         disableEscapeKeyDown
       >
-        <DialogTitle sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <Typography variant="h3" component="span" sx={{ fontSize: '1.25rem' }}>Add New Entry</Typography>
-          <IconButton onClick={handleCloseAttempt} disabled={isLoading} size="small" sx={{ display: { sm: 'none' } }}>
+        <DialogTitle
+          sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
+        >
+          <Typography variant="h3" component="span" sx={{ fontSize: '1.25rem' }}>
+            Add New Entry
+          </Typography>
+          <IconButton
+            onClick={handleCloseAttempt}
+            disabled={isLoading}
+            size="small"
+            sx={{ display: { sm: 'none' } }}
+          >
             <CloseIcon />
           </IconButton>
-          <IconButton onClick={handleCloseAttempt} disabled={isLoading} size="small" sx={{ display: { xs: 'none', sm: 'inline-flex' } }}>
+          <IconButton
+            onClick={handleCloseAttempt}
+            disabled={isLoading}
+            size="small"
+            sx={{ display: { xs: 'none', sm: 'inline-flex' } }}
+          >
             <CloseIcon />
           </IconButton>
         </DialogTitle>
-        
+
         <DialogContent dividers sx={{ pt: 2 }}>
           {showConfirm ? (
             <Box sx={{ py: 3, textAlign: 'center' }}>
@@ -108,7 +121,7 @@ const AddEntryModal = ({ open, onClose }) => {
               </Box>
             </Box>
           ) : (
-            <CensusForm 
+            <CensusForm
               onSubmit={handleFormSubmit}
               onCancel={handleCloseAttempt}
               isLoading={isLoading}
@@ -119,9 +132,9 @@ const AddEntryModal = ({ open, onClose }) => {
         </DialogContent>
       </Dialog>
 
-      <Snackbar 
-        open={snackbar.open} 
-        autoHideDuration={6000} 
+      <Snackbar
+        open={snackbar.open}
+        autoHideDuration={6000}
         onClose={() => setSnackbar((prev) => ({ ...prev, open: false }))}
         anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
       >

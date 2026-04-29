@@ -1,5 +1,5 @@
 import { describe, expect, it } from '@jest/globals';
-import { formatDisplay, toApiFormat, fromApiFormat } from './dateUtils';
+import { formatDisplay, toApiFormat, fromApiFormat } from '../src/utils/dateUtils';
 
 describe('dateUtils', () => {
   it('formats API dates for display', () => {

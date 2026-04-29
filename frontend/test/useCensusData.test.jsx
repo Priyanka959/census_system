@@ -1,9 +1,9 @@
 import { describe, expect, it, jest, beforeEach } from '@jest/globals';
 import { renderHook, waitFor } from '@testing-library/react';
-import { useCensusData } from './useCensusData';
-import { fetchAllData } from '../api/census';
+import { useCensusData } from '../src/hooks/useCensusData';
+import { fetchAllData } from '../src/api/census';
 
-jest.mock('../api/census', () => ({
+jest.mock('../src/api/census', () => ({
   fetchAllData: jest.fn(),
 }));
 

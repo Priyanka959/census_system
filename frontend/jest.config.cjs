@@ -7,6 +7,6 @@ module.exports = {
   moduleNameMapper: {
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
   },
-  testMatch: ['<rootDir>/src/**/*.test.[jt]s?(x)'],
+  testMatch: ['<rootDir>/src/**/*.test.[jt]s?(x)', '<rootDir>/test/**/*.test.[jt]s?(x)'],
   clearMocks: true,
 };

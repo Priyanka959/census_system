@@ -44,13 +44,15 @@ const SidebarContent = ({ activeTab, onTabChange, onAddClick }) => (
       <VaccinesRoundedIcon sx={{ fontSize: 20, color: '#1A1A1A' }} />
     </Box>
 
-    <Box sx={{ 
-      display: 'flex', 
-      flexDirection: 'column', 
-      gap: 0.5, 
-      flex: 'auto',
-      justifyContent: 'center',
-    }}>
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 0.5,
+        flex: 'auto',
+        justifyContent: 'center',
+      }}
+    >
       {/* Add Button */}
       <Tooltip title="Add Entry" placement="right" arrow>
         <Box
@@ -123,7 +125,7 @@ const SidebarContent = ({ activeTab, onTabChange, onAddClick }) => (
         background: 'rgba(255,255,255,0.12)',
         color: '#FFFFFF',
         fontFamily: '"DM Sans", sans-serif',
-        mt: 'auto'
+        mt: 'auto',
       }}
     >
       VC

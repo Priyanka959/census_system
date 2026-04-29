@@ -22,10 +22,7 @@ export const useSubmitVote = () => {
     } catch (err) {
       console.error(err);
 
-      setError(
-        err.response?.data?.error ||
-        'Failed to submit vote. Try again later.'
-      );
+      setError(err.response?.data?.error || 'Failed to submit vote. Try again later.');
 
       return false;
     } finally {

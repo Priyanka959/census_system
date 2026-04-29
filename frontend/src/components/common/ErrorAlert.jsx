@@ -4,16 +4,16 @@ import ReplayIcon from '@mui/icons-material/Replay';
 
 const ErrorAlert = ({ message, onRetry }) => (
   <Box sx={{ width: '100%', py: 4, display: 'flex', justifyContent: 'center' }}>
-    <Alert 
-      severity="error" 
-      sx={{ 
-        background: 'rgba(255, 77, 109, 0.06)', 
+    <Alert
+      severity="error"
+      sx={{
+        background: 'rgba(255, 77, 109, 0.06)',
         border: '1px solid rgba(255, 77, 109, 0.2)',
         color: '#111111',
         borderRadius: '12px',
         alignItems: 'center',
         maxWidth: '500px',
-        width: '100%'
+        width: '100%',
       }}
       action={
         onRetry ? (

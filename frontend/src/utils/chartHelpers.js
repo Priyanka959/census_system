@@ -4,18 +4,22 @@ export const buildLineChartData = (vaxData, unvaxData) => {
   }
 
   const ageSet = new Set();
-  (vaxData || []).forEach(item => { if (item.age != null) ageSet.add(item.age); });
-  (unvaxData || []).forEach(item => { if (item.age != null) ageSet.add(item.age); });
-  
+  (vaxData || []).forEach((item) => {
+    if (item.age != null) ageSet.add(item.age);
+  });
+  (unvaxData || []).forEach((item) => {
+    if (item.age != null) ageSet.add(item.age);
+  });
+
   const labels = Array.from(ageSet).sort((a, b) => a - b);
 
-  const vaxCounts = labels.map(age => {
-    const record = (vaxData || []).find(item => item.age === age);
+  const vaxCounts = labels.map((age) => {
+    const record = (vaxData || []).find((item) => item.age === age);
     return record ? record.count : 0;
   });
 
-  const unvaxCounts = labels.map(age => {
-    const record = (unvaxData || []).find(item => item.age === age);
+  const unvaxCounts = labels.map((age) => {
+    const record = (unvaxData || []).find((item) => item.age === age);
     return record ? record.count : 0;
   });
 
@@ -51,8 +55,8 @@ export const buildLineChartData = (vaxData, unvaxData) => {
         pointHoverRadius: 7,
         pointHoverBackgroundColor: '#FFFFFF',
         pointHoverBorderColor: '#FF4D6D',
-      }
-    ]
+      },
+    ],
   };
 };
 
@@ -60,24 +64,26 @@ export const buildBarChartData = (data) => {
   if (!data || data.length === 0) {
     return null;
   }
-  
+
   const ageSet = new Set();
-  data.forEach(item => { if (item.age != null) ageSet.add(item.age); });
-  
+  data.forEach((item) => {
+    if (item.age != null) ageSet.add(item.age);
+  });
+
   const labels = Array.from(ageSet).sort((a, b) => a - b);
-  
-  const maleCounts = labels.map(age => {
-    const record = data.find(item => item.age === age && item.gender?.toLowerCase() === 'male');
+
+  const maleCounts = labels.map((age) => {
+    const record = data.find((item) => item.age === age && item.gender?.toLowerCase() === 'male');
     return record ? record.count : 0;
   });
 
-  const femaleCounts = labels.map(age => {
-    const record = data.find(item => item.age === age && item.gender?.toLowerCase() === 'female');
+  const femaleCounts = labels.map((age) => {
+    const record = data.find((item) => item.age === age && item.gender?.toLowerCase() === 'female');
     return record ? record.count : 0;
   });
 
-  const otherCounts = labels.map(age => {
-    const record = data.find(item => item.age === age && item.gender?.toLowerCase() === 'other');
+  const otherCounts = labels.map((age) => {
+    const record = data.find((item) => item.age === age && item.gender?.toLowerCase() === 'other');
     return record ? record.count : 0;
   });
 
@@ -101,7 +107,7 @@ export const buildBarChartData = (data) => {
         data: otherCounts,
         backgroundColor: '#FFB800',
         borderRadius: 0,
-      }
-    ]
+      },
+    ],
   };
 };

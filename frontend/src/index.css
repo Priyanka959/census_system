@@ -15,7 +15,7 @@ body {
   font-family: 'DM Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #F0F2EE;
+  background: #f0f2ee;
   color: #111111;
   min-height: 100vh;
   position: relative;
@@ -60,14 +60,14 @@ body::after {
   50% {
     background:
       radial-gradient(ellipse 650px 650px at 25% 30%, rgba(212, 245, 60, 0.14) 0%, transparent 70%),
-      radial-gradient(ellipse 550px 550px at 75% 25%, rgba(41, 121, 255, 0.10) 0%, transparent 70%),
+      radial-gradient(ellipse 550px 550px at 75% 25%, rgba(41, 121, 255, 0.1) 0%, transparent 70%),
       radial-gradient(ellipse 500px 500px at 60% 70%, rgba(255, 77, 109, 0.08) 0%, transparent 70%),
       radial-gradient(ellipse 450px 450px at 40% 65%, rgba(255, 184, 0, 0.07) 0%, transparent 70%),
       radial-gradient(ellipse 400px 400px at 55% 45%, rgba(212, 245, 60, 0.05) 0%, transparent 70%);
   }
   100% {
     background:
-      radial-gradient(ellipse 580px 580px at 20% 40%, rgba(212, 245, 60, 0.10) 0%, transparent 70%),
+      radial-gradient(ellipse 580px 580px at 20% 40%, rgba(212, 245, 60, 0.1) 0%, transparent 70%),
       radial-gradient(ellipse 520px 520px at 80% 10%, rgba(41, 121, 255, 0.09) 0%, transparent 70%),
       radial-gradient(ellipse 470px 470px at 65% 85%, rgba(255, 77, 109, 0.07) 0%, transparent 70%),
       radial-gradient(ellipse 420px 420px at 35% 80%, rgba(255, 184, 0, 0.08) 0%, transparent 70%),
@@ -94,8 +94,12 @@ body::after {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes scaleIn {
@@ -110,8 +114,13 @@ body::after {
 }
 
 @keyframes pulseGlow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(212, 245, 60, 0.25); }
-  50%      { box-shadow: 0 0 0 6px rgba(212, 245, 60, 0); }
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(212, 245, 60, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(212, 245, 60, 0);
+  }
 }
 
 @keyframes slideDown {
@@ -130,13 +139,27 @@ body::after {
   animation: fadeUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
 
-.anim-fade-up-1 { animation-delay: 0.05s; }
-.anim-fade-up-2 { animation-delay: 0.1s; }
-.anim-fade-up-3 { animation-delay: 0.15s; }
-.anim-fade-up-4 { animation-delay: 0.2s; }
-.anim-fade-up-5 { animation-delay: 0.25s; }
-.anim-fade-up-6 { animation-delay: 0.3s; }
-.anim-fade-up-7 { animation-delay: 0.35s; }
+.anim-fade-up-1 {
+  animation-delay: 0.05s;
+}
+.anim-fade-up-2 {
+  animation-delay: 0.1s;
+}
+.anim-fade-up-3 {
+  animation-delay: 0.15s;
+}
+.anim-fade-up-4 {
+  animation-delay: 0.2s;
+}
+.anim-fade-up-5 {
+  animation-delay: 0.25s;
+}
+.anim-fade-up-6 {
+  animation-delay: 0.3s;
+}
+.anim-fade-up-7 {
+  animation-delay: 0.35s;
+}
 
 .anim-scale-in {
   animation: scaleIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
@@ -152,11 +175,11 @@ body::after {
 }
 
 ::-webkit-scrollbar-track {
-  background: #F0F2EE;
+  background: #f0f2ee;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #C4C6C0;
+  background: #c4c6c0;
   border-radius: 3px;
 }
 

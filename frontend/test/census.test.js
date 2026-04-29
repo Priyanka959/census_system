@@ -1,6 +1,6 @@
 import { describe, expect, it, jest, beforeEach } from '@jest/globals';
 import axios from 'axios';
-import { submitVote, updateVote, deleteVote, fetchAllData, fetchCounts, fetchResults } from './census';
+import { submitVote, updateVote, deleteVote, fetchAllData, fetchCounts, fetchResults } from '../src/api/census';
 
 jest.mock('axios');
 

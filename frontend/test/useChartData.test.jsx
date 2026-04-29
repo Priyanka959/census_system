@@ -1,15 +1,15 @@
 import { describe, expect, it, jest, beforeEach } from '@jest/globals';
 import { renderHook, waitFor } from '@testing-library/react';
-import { useChartData } from './useChartData';
-import { fetchCounts, fetchResults } from '../api/census';
-import { buildLineChartData, buildBarChartData } from '../utils/chartHelpers';
+import { useChartData } from '../src/hooks/useChartData';
+import { fetchCounts, fetchResults } from '../src/api/census';
+import { buildLineChartData, buildBarChartData } from '../src/utils/chartHelpers';
 
-jest.mock('../api/census', () => ({
+jest.mock('../src/api/census', () => ({
   fetchCounts: jest.fn(),
   fetchResults: jest.fn(),
 }));
 
-jest.mock('../utils/chartHelpers', () => ({
+jest.mock('../src/utils/chartHelpers', () => ({
   buildLineChartData: jest.fn(),
   buildBarChartData: jest.fn(),
 }));

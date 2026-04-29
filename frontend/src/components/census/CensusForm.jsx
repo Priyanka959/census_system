@@ -21,15 +21,15 @@ import WcRoundedIcon from '@mui/icons-material/WcRounded';
 import VaccinesRoundedIcon from '@mui/icons-material/VaccinesRounded';
 
 const COLORS = {
-  bgInput:     '#F5F5F5',
-  accent:      '#D4F53C',
-  accentDim:   'rgba(212,245,60,0.15)',
-  dark:        '#1A1A1A',
+  bgInput: '#F5F5F5',
+  accent: '#D4F53C',
+  accentDim: 'rgba(212,245,60,0.15)',
+  dark: '#1A1A1A',
   textPrimary: '#111111',
-  textSecond:  '#555555',
-  textMuted:   '#999999',
-  border:      '#E2E4DF',
-  coral:       '#FF4D6D',
+  textSecond: '#555555',
+  textMuted: '#999999',
+  border: '#E2E4DF',
+  coral: '#FF4D6D',
 };
 
 const FieldLabel = ({ icon: Icon, label, required }) => (
@@ -53,15 +53,23 @@ const FieldLabel = ({ icon: Icon, label, required }) => (
 
 const CensusForm = ({ onSubmit, onCancel, isLoading, serverError, onDirtyChange, initialData }) => {
   const maxDate = new Date().toISOString().split('T')[0];
-  const minDate = new Date(new Date().setFullYear(new Date().getFullYear() - 100)).toISOString().split('T')[0];
+  const minDate = new Date(new Date().setFullYear(new Date().getFullYear() - 100))
+    .toISOString()
+    .split('T')[0];
 
-  const { register, handleSubmit, control, formState: { errors, isDirty }, reset } = useForm({
+  const {
+    register,
+    handleSubmit,
+    control,
+    formState: { errors, isDirty },
+    reset,
+  } = useForm({
     defaultValues: initialData || {
       name: '',
       gender: '',
       birthdate: '',
-      is_vaccinated: ''
-    }
+      is_vaccinated: '',
+    },
   });
 
   // Notify parent of dirty state for confirmation dialog
@@ -73,7 +81,7 @@ const CensusForm = ({ onSubmit, onCancel, isLoading, serverError, onDirtyChange,
     // Convert string 'true'/'false' back to boolean for the API
     const payload = {
       ...data,
-      is_vaccinated: data.is_vaccinated === 'true'
+      is_vaccinated: data.is_vaccinated === 'true',
     };
     onSubmit(payload, reset);
   };
@@ -97,12 +105,7 @@ const CensusForm = ({ onSubmit, onCancel, isLoading, serverError, onDirtyChange,
   };
 
   return (
-    <Box
-      component="form"
-      onSubmit={handleSubmit(handleFormSubmit)}
-      noValidate
-      sx={{ py: 1 }}
-    >
+    <Box component="form" onSubmit={handleSubmit(handleFormSubmit)} noValidate sx={{ py: 1 }}>
       {serverError && (
         <Alert severity="error" sx={{ mb: 3, borderRadius: '12px' }}>
           {serverError}
@@ -117,7 +120,7 @@ const CensusForm = ({ onSubmit, onCancel, isLoading, serverError, onDirtyChange,
           {...register('name', {
             required: 'Name is required',
             maxLength: { value: 100, message: 'Name cannot exceed 100 characters' },
-            validate: value => value.trim().length > 0 || 'Name cannot be empty'
+            validate: (value) => value.trim().length > 0 || 'Name cannot be empty',
           })}
           error={!!errors.name}
           helperText={errors.name?.message}
@@ -165,19 +168,25 @@ const CensusForm = ({ onSubmit, onCancel, isLoading, serverError, onDirtyChange,
                 >
                   <MenuItem value="male">
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
-                      <Box sx={{ width: 8, height: 8, borderRadius: '50%', background: '#2979FF' }} />
+                      <Box
+                        sx={{ width: 8, height: 8, borderRadius: '50%', background: '#2979FF' }}
+                      />
                       Male
                     </Box>
                   </MenuItem>
                   <MenuItem value="female">
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
-                      <Box sx={{ width: 8, height: 8, borderRadius: '50%', background: '#FF4D6D' }} />
+                      <Box
+                        sx={{ width: 8, height: 8, borderRadius: '50%', background: '#FF4D6D' }}
+                      />
                       Female
                     </Box>
                   </MenuItem>
                   <MenuItem value="other">
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
-                      <Box sx={{ width: 8, height: 8, borderRadius: '50%', background: '#FFB800' }} />
+                      <Box
+                        sx={{ width: 8, height: 8, borderRadius: '50%', background: '#FFB800' }}
+                      />
                       Other
                     </Box>
                   </MenuItem>
@@ -202,7 +211,7 @@ const CensusForm = ({ onSubmit, onCancel, isLoading, serverError, onDirtyChange,
             {...register('birthdate', {
               required: 'Date of birth is required',
               max: { value: maxDate, message: 'Cannot be a future date' },
-              min: { value: minDate, message: 'Cannot be more than 100 years ago' }
+              min: { value: minDate, message: 'Cannot be more than 100 years ago' },
             })}
             error={!!errors.birthdate}
             helperText={errors.birthdate?.message}

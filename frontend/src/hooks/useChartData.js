@@ -14,9 +14,9 @@ export const useChartData = () => {
 
     try {
       const [vaxData, unvaxData, resultsData] = await Promise.all([
-        fetchCounts(true),   // ✅ returns array
-        fetchCounts(false),  // ✅ returns array
-        fetchResults()       // ✅ returns array
+        fetchCounts(true), // ✅ returns array
+        fetchCounts(false), // ✅ returns array
+        fetchResults(), // ✅ returns array
       ]);
 
       setLineData(buildLineChartData(vaxData || [], unvaxData || []));

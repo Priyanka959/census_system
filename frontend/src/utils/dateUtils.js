@@ -16,7 +16,7 @@ export const toApiFormat = (dateValue) => {
 
 export const fromApiFormat = (str) => {
   if (!str) return null;
-  
+
   // Try direct parsing first for ISO string
   const d = new Date(str);
   if (isValid(d)) return d;

@@ -11,7 +11,8 @@ export const calculateDashboardStats = (data) => {
 
   const total = data.length;
   const vaccinatedCount = data.filter(
-    (item) => item.is_vaccinated === true || item.is_vaccinated === 1 || item.is_vaccinated === 'true'
+    (item) =>
+      item.is_vaccinated === true || item.is_vaccinated === 1 || item.is_vaccinated === 'true'
   ).length;
   const vaccinatedPercent = Math.round((vaccinatedCount / total) * 100);
 

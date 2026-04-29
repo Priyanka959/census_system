@@ -1,5 +1,5 @@
 import { describe, expect, it } from '@jest/globals';
-import { buildLineChartData, buildBarChartData } from './chartHelpers';
+import { buildLineChartData, buildBarChartData } from '../src/utils/chartHelpers';
 
 describe('chartHelpers', () => {
   it('builds line chart datasets from age buckets', () => {

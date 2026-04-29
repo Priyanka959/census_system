@@ -34,8 +34,19 @@ const AnimatedNumber = ({ target, duration = 1500, suffix = '' }) => {
     window.requestAnimationFrame(step);
   }, [target, duration]);
 
-  if (typeof target !== 'number') return <span>{target}{suffix}</span>;
-  return <span>{count}{suffix}</span>;
+  if (typeof target !== 'number')
+    return (
+      <span>
+        {target}
+        {suffix}
+      </span>
+    );
+  return (
+    <span>
+      {count}
+      {suffix}
+    </span>
+  );
 };
 
 // ─── Tab Pill ───
@@ -68,7 +79,14 @@ const TabPill = ({ label, active, onClick }) => (
 );
 
 // ─── KPI Stat Card ───
-const StatCard = ({ value, label, suffix = '', index = 0, isText = false, fullWidthSm = false }) => (
+const StatCard = ({
+  value,
+  label,
+  suffix = '',
+  index = 0,
+  isText = false,
+  fullWidthSm = false,
+}) => (
   <Card
     className={`anim-fade-up anim-fade-up-${index + 1}`}
     sx={{
@@ -130,7 +148,7 @@ const DashboardPage = () => {
   const [stats, setStats] = useState({
     total: 0,
     vaccinatedPercent: 0,
-    topAgeGroup: '--'
+    topAgeGroup: '--',
   });
 
   useEffect(() => {
@@ -208,7 +226,12 @@ const DashboardPage = () => {
                 sx={{
                   fontFamily: '"Orbitron", sans-serif',
                   fontWeight: 900,
-                  fontSize: { xs: 'clamp(20px, 6vw, 26px)', sm: 'clamp(24px, 5vw, 32px)', md: 'clamp(28px, 4vw, 38px)', lg: 'clamp(32px, 3vw, 48px)' },
+                  fontSize: {
+                    xs: 'clamp(20px, 6vw, 26px)',
+                    sm: 'clamp(24px, 5vw, 32px)',
+                    md: 'clamp(28px, 4vw, 38px)',
+                    lg: 'clamp(32px, 3vw, 48px)',
+                  },
                   color: '#111111',
                   lineHeight: 1.05,
                   letterSpacing: '-0.02em',
@@ -219,10 +242,17 @@ const DashboardPage = () => {
                 }}
               >
                 <Box component="span">
-                  <Box component="span" sx={{ borderBottom: '3px solid #D4F53C', paddingBottom: '2px' }}>Vax</Box>
+                  <Box
+                    component="span"
+                    sx={{ borderBottom: '3px solid #D4F53C', paddingBottom: '2px' }}
+                  >
+                    Vax
+                  </Box>
                   <Box component="span">Census</Box>
                 </Box>
-                <Box component="span" sx={{ display: { xs: 'none', md: 'inline' } }}>Dashboard</Box>
+                <Box component="span" sx={{ display: { xs: 'none', md: 'inline' } }}>
+                  Dashboard
+                </Box>
               </Typography>
 
               {/* SUBTITLE */}
@@ -297,9 +327,21 @@ const DashboardPage = () => {
             '&::-webkit-scrollbar': { display: 'none' },
           }}
         >
-          <TabPill label="Overview" active={activeTab === 'overview'} onClick={() => setActiveTab('overview')} />
-          <TabPill label="Records" active={activeTab === 'records'} onClick={() => setActiveTab('records')} />
-          <TabPill label="Trends" active={activeTab === 'trends'} onClick={() => setActiveTab('trends')} />
+          <TabPill
+            label="Overview"
+            active={activeTab === 'overview'}
+            onClick={() => setActiveTab('overview')}
+          />
+          <TabPill
+            label="Records"
+            active={activeTab === 'records'}
+            onClick={() => setActiveTab('records')}
+          />
+          <TabPill
+            label="Trends"
+            active={activeTab === 'trends'}
+            onClick={() => setActiveTab('trends')}
+          />
         </Box>
 
         {/* KPI Stats */}
@@ -314,7 +356,13 @@ const DashboardPage = () => {
           >
             <StatCard value={stats.total} label="Total Records" index={0} />
             <StatCard value={stats.vaccinatedPercent} label="Vaccinated" suffix="%" index={1} />
-            <StatCard value={stats.topAgeGroup} label="Most Common Age" index={2} isText fullWidthSm />
+            <StatCard
+              value={stats.topAgeGroup}
+              label="Most Common Age"
+              index={2}
+              isText
+              fullWidthSm
+            />
           </Box>
         )}
 
@@ -342,7 +390,7 @@ const DashboardPage = () => {
                   background: COLORS.bgDark,
                   borderRadius: '16px',
                   boxShadow: '0 4px 24px rgba(0,0,0,0.12)',
-                  overflow: 'hidden'
+                  overflow: 'hidden',
                 }}
               >
                 <CardContent sx={{ p: 3 }}>
@@ -370,7 +418,7 @@ const DashboardPage = () => {
                   background: COLORS.bgDark,
                   borderRadius: '16px',
                   boxShadow: '0 4px 24px rgba(0,0,0,0.12)',
-                  overflow: 'hidden'
+                  overflow: 'hidden',
                 }}
               >
                 <CardContent sx={{ p: 3 }}>
