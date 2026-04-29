@@ -96,9 +96,10 @@ census_management_system/
 ├── frontend/              # React Application
 │   ├── src/
 │   │   ├── components/    # Reusable UI components
-│   │   ├── pages/         # Page-level components
-│   │   ├── api/           # Axios service layer
-│   │   └── utils/         # Helpers (date formatting, etc.)
+   │   │   ├── pages/         # Page-level components
+   │   │   ├── api/           # Axios service layer
+   │   │   └── utils/         # Helpers (date formatting, etc.)
+│   ├── test/              # Jest unit tests for frontend (moved from src)
 │   └── App.jsx            # Main app router
 └── README.md              # Project documentation
 ```
@@ -114,7 +115,7 @@ npm install
 npm test
 ```
 
-- Frontend tests live alongside source files under `frontend/src/` and use Jest + @testing-library/react for unit and hook tests. Test files use the `*.test.*` convention and are placed near the modules they exercise (for example `frontend/src/utils/*test.js`, `frontend/src/hooks/*test.jsx`, and `frontend/src/components/*test.jsx`).
+- Frontend tests are located in `frontend/test/` and use Jest + @testing-library/react for unit and hook tests. Test files use the `*.test.*` convention and are placed under `frontend/test/` (one file per unit under the `test` folder).
    - Run frontend tests from the repository root:
 
 ```bash
