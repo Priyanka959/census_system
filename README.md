@@ -2,7 +2,8 @@
 
 A premium, modern SaaS dashboard for managing census records and vaccination tracking. Built with a robust Node.js backend and a high-performance React frontend, featuring dynamic charts, real-time statistics, and a sleek, responsive UI.
 
-![VaxCensus Dashboard Mockup](https://raw.githubusercontent.com/username/repo/main/assets/preview.png)
+![VaxCensus Dashboard Preview](frontend/public/vaxcensus-dashboard.png)
+
 
 ## ✨ Features
 
@@ -101,6 +102,29 @@ census_management_system/
 │   └── App.jsx            # Main app router
 └── README.md              # Project documentation
 ```
+
+## 🧪 Tests
+
+- Backend tests are located in `backend/test/` and use Mocha + Chai + Supertest for route-level and middleware unit tests.
+   - Run backend tests from the repository root:
+
+```bash
+cd backend
+npm install
+npm test
+```
+
+- Frontend tests live alongside source files under `frontend/src/` and use Jest + @testing-library/react for unit and hook tests. Test files use the `*.test.*` convention and are placed near the modules they exercise (for example `frontend/src/utils/*test.js`, `frontend/src/hooks/*test.jsx`, and `frontend/src/components/*test.jsx`).
+   - Run frontend tests from the repository root:
+
+```bash
+cd frontend
+npm install
+npm test -- --runInBand
+```
+
+If you want to include the screenshot shown above in the repository, save the provided image file as `frontend/public/vaxcensus-dashboard.png` (the README references that path). Using the public folder will ensure the image is available when the frontend is served and when GitHub renders the README.
+
 
 ## 🤝 Contributing
 
