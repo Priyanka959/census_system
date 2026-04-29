@@ -4,8 +4,9 @@ A premium, modern SaaS dashboard for managing census records and vaccination tra
 
 ![VaxCensus Dashboard Preview](frontend/public/vaxcensus-dashboard.png)
 
+![VaxCensus Demo](frontend/public/Video%20Project%2010.gif)
 
-## ✨ Features
+##  Features
 
 - **Dynamic KPI Cards:** Real-time tracking of total records, vaccination percentages, and common demographics.
 - **Interactive Charts:** Visual trends for vaccination data and demographic distributions using Chart.js.
@@ -14,7 +15,7 @@ A premium, modern SaaS dashboard for managing census records and vaccination tra
 - **Robust Validation:** Comprehensive server-side and client-side validation for data integrity.
 - **Search & Filtering:** Easily manage large datasets with built-in table controls.
 
-## 🛠️ Technology Stack
+##  Technology Stack
 
 ### Frontend
 - **React 18** (Vite-powered)
@@ -31,7 +32,7 @@ A premium, modern SaaS dashboard for managing census records and vaccination tra
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 Follow these steps to set up the project locally.
 
@@ -83,7 +84,7 @@ cd census_management_system
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```text
 census_management_system/
@@ -92,6 +93,7 @@ census_management_system/
 │   │   ├── api/           # API routes
 │   │   ├── config/        # DB and App config
 │   │   └── middleware/    # Validation & Auth
+│   ├── test/              # Mocha + Chai tests
 │   └── index.js           # Entry point
 ├── frontend/              # React Application
 │   ├── src/
@@ -104,7 +106,7 @@ census_management_system/
 └── README.md              # Project documentation
 ```
 
-## 🧪 Tests
+##  Tests
 
 - Backend tests are located in `backend/test/` and use Mocha + Chai + Supertest for route-level and middleware unit tests.
    - Run backend tests from the repository root:
@@ -124,13 +126,6 @@ npm install
 npm test -- --runInBand
 ```
 
-If you want to include the screenshot shown above in the repository, save the provided image file as `frontend/public/vaxcensus-dashboard.png` (the README references that path). Using the public folder will ensure the image is available when the frontend is served and when GitHub renders the README.
 
 
-## 🤝 Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request or open an issue for any bugs or feature requests.
-
-## 📄 License
-
-This project is licensed under the MIT License.
